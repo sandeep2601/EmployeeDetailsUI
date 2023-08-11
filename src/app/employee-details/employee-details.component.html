@@ -7,6 +7,7 @@
             <th>Date of Join</th>
             <th>Designation</th>
             <th>Age</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,17 @@
             <td>{{emp.doj | date}}</td> <!-- or we can use formatted date as "date:'yyyy-MM-dd'"-->
             <td>{{emp.designation}}</td>
             <td>{{emp.age}}</td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Actions
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">Edit</a></li>
+                      <li><a class="dropdown-item" href="#">Delete</a></li>
+                    </ul>
+                  </div>
+            </td>
         </tr>
     </tbody>
 </table>
