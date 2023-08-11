@@ -14,7 +14,7 @@
             <td>{{emp.name}}</td>
             <td>{{emp.lastName}}</td>
             <td>{{emp.email}}</td>
-            <td>{{emp.doj}}</td>
+            <td>{{emp.doj | date}}</td> <!-- or we can use formatted date as "date:'yyyy-MM-dd'"-->
             <td>{{emp.Designation}}</td>
             <td>{{emp.age}}</td>
         </tr>
