@@ -9,7 +9,7 @@ export class Employee {
     isMarried: number;
     isActive: number;
     designationID: number = 0;
-    Designation: string = '';
+    designation: string = '';
 }
 
 export class Designation {
