@@ -53,11 +53,12 @@
 
                     <div class="col-md-3">
                         <label for="designation" class="float-start">Designation</label>
-                        <div *ngIf="designationID.touched || designationID.value==0" class="float-end">
+                        <div *ngIf="designationID.touched && designationID.value==0" class="float-end">
                             <p class="text-danger">Required</p>
                         </div>
                         <select name="designationID" class="form-control" #designationID="ngModel" [(ngModel)]="empService.employeeData.designationID" required>
                             <option value="0">Please Select</option>
+                            <option [value]="desg.id" *ngFor="let desg of empService.listDesignations">{{desg.designation}}</option>
                         </select>
                     </div>
 
@@ -96,7 +97,7 @@
                             <div class="col-md-8">
                             </div>
                             <div class="col-md-2">
-                                <button type="submit" class="btn btn-success btn-block">Save</button>
+                                <button type="submit" [disabled]="designationID.value == 0" class="btn btn-success btn-block">Save</button>
                             </div>
                             <div class="col-md-2">
                                 <button type="submit" class="btn btn-danger btn-block">Cancel</button>

@@ -11,7 +11,9 @@ export class EmployeeFormComponent implements OnInit {
   constructor(public empService: EmployeeService) {}
 
   ngOnInit() {
-    
+    this.empService.getDesignations().subscribe(data => {
+      this.empService.listDesignations = data;
+    })
   }
 
   submit(form: NgForm) {
