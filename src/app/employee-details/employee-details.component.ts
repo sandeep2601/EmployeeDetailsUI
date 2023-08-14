@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EmployeeService } from '../shared/employee.service';
 import { Employee } from '../shared/employee.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-employee-details',
@@ -8,7 +9,7 @@ import { Employee } from '../shared/employee.model';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent {
-  constructor(public empService: EmployeeService) { }
+  constructor(public empService: EmployeeService, public datepipie: DatePipe) { }
 
   ngOnInit() {
     this.getEmployees();
@@ -21,6 +22,8 @@ export class EmployeeDetailsComponent {
   }
 
   editEmployee(seledtedEmployee: Employee) {
+    let dateFormat = this.datepipie.transform(seledtedEmployee.doj, 'yyyy-MM-dd');
+    seledtedEmployee.doj = dateFormat;
     this.empService.employeeData = seledtedEmployee;
   }
 
