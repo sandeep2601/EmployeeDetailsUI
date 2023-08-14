@@ -53,7 +53,7 @@
 
                     <div class="col-md-3">
                         <label for="designation" class="float-start">Designation</label>
-                        <div *ngIf="designationID.invalid && (designationID.touched || designationID.dirty)" class="float-end">
+                        <div *ngIf="designationID.touched || designationID.value==0" class="float-end">
                             <p class="text-danger">Required</p>
                         </div>
                         <select name="designationID" class="form-control" #designationID="ngModel" [(ngModel)]="empService.employeeData.designationID" required>
