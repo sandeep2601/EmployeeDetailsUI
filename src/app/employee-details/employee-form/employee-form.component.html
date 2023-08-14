@@ -68,15 +68,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" value="male" id="male" #gender="ngModel" [(ngModel)]="empService.employeeData.gender">
+                                    <input class="form-check-input" type="radio" value="male" id="male" name="gender" #gender="ngModel" [(ngModel)]="empService.employeeData.gender" checked="true">
                                     <label class="form-check-label" for="male">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" value="female" id="female" #gender="ngModel" [(ngModel)]="empService.employeeData.gender" checked="true">
+                                    <input class="form-check-input" type="radio" value="female" id="female" name="gender" #gender="ngModel" [(ngModel)]="empService.employeeData.gender">
                                     <label class="form-check-label" for="female">Female</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" value="others" id="others" #gender="ngModel" [(ngModel)]="empService.employeeData.gender">
+                                    <input class="form-check-input" type="radio" value="others" id="others" name="gender" #gender="ngModel" [(ngModel)]="empService.employeeData.gender">
                                     <label class="form-check-label" for="others">Others</label>
                                 </div>
                             </div>
