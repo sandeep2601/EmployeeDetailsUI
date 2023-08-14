@@ -13,4 +13,8 @@ export class EmployeeFormComponent implements OnInit {
   ngOnInit() {
     
   }
+
+  submit(form: NgForm) {
+    console.log('form:', form)
+  }
 }

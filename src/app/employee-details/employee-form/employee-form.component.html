@@ -6,41 +6,58 @@
 </div>
 
 <div class="formAdd">
-    <form autocomplete="off" #myForm="ngForm">
+    <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
                     <input type="hidden" name="id" [value]="empService.employeeData.id">
-
-                    <label for="name">Name</label>
+                    <label for="name" class="float-start">Name</label>
+                    <div *ngIf="name.invalid && (name.touched || name.dirty)" class="float-end">
+                        <p class="text-danger">Required</p>
+                    </div>
                     <input type="text" name="name" class="form-control" placeholder="Enter Name" #name="ngModel" [(ngModel)]="empService.employeeData.name" required>
                 </div>
 
                 <div class="col-md-3">
-                    <label for="lastname">Last Name</label>
+                    <label for="lastname" class="float-start">Last Name</label>
+                    <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)" class="float-end">
+                        <p class="text-danger">Required</p>
+                    </div>
                     <input type="text" name="lastname" class="form-control" placeholder="Enter Last Name" #lastname="ngModel" [(ngModel)]="empService.employeeData.lastName" required>
                 </div>
 
                     <div class="col-md-3">
-                    <label for="email">Email</label>
+                    <label for="email" class="float-start">Email</label>
+                    <div *ngIf="email.invalid && (email.touched || email.dirty)" class="float-end">
+                        <p class="text-danger">Required</p>
+                    </div>
                     <input type="text" name="email" class="form-control" placeholder="Enter Email" #email="ngModel" [(ngModel)]="empService.employeeData.email" required>
                 </div>
 
                     <div class="col-md-3">
-                    <label for="age">Age</label>
+                    <label for="age" class="float-start">Age</label>
+                    <div *ngIf="age.invalid && (age.touched || age.dirty)" class="float-end">
+                        <p class="text-danger">Required</p>
+                    </div>
                     <input type="number" name="age" class="form-control" placeholder="Enter Age" #age="ngModel" [(ngModel)]="empService.employeeData.age" required>
                 </div>
 
                 <div class="row">
                     <div class="col-md-3">
-                        <label for="date">Date of Joining</label>
+                        <label for="date" class="float-start">Date of Joining</label>
+                        <div *ngIf="doj.invalid && (doj.touched || doj.dirty)" class="float-end">
+                            <p class="text-danger">Required</p>
+                        </div>
                         <input type="date" name="date" class="form-control" #doj="ngModel" [(ngModel)]="empService.employeeData.doj" required>
                     </div>
 
                     <div class="col-md-3">
-                        <label for="designation">Designation</label>
+                        <label for="designation" class="float-start">Designation</label>
+                        <div *ngIf="designationID.invalid && (designationID.touched || designationID.dirty)" class="float-end">
+                            <p class="text-danger">Required</p>
+                        </div>
                         <select name="designationID" class="form-control" #designationID="ngModel" [(ngModel)]="empService.employeeData.designationID" required>
-                            <option value="">Please Select</option>
+                            <option value="0">Please Select</option>
                         </select>
                     </div>
 
