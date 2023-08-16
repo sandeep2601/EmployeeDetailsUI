@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { EmployeeService } from '../shared/employee.service';
 import { Employee } from '../shared/employee.model';
 import { DatePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-employee-details',
@@ -9,7 +10,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent {
-  constructor(public empService: EmployeeService, public datepipie: DatePipe) { }
+  constructor(public empService: EmployeeService, public datepipie: DatePipe, public toast: ToastrService) { }
 
   ngOnInit() {
     this.getEmployees();
@@ -30,10 +31,10 @@ export class EmployeeDetailsComponent {
   deleteEmployee(id: number) {
     if (confirm('Are you really want to delete this record?')) {
       this.empService.deleteEmployee(id).subscribe(data => {
-        console.log('Record Deleted...');
+        this.toast.success('Success', 'Record Deleted');
         this.getEmployees();
       }, err => {
-        console.log('Error: Record not deleted...');
+        this.toast.error('Error', 'Record not deleted');
       })
     }
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Employee } from 'src/app/shared/employee.model';
 import { EmployeeService } from 'src/app/shared/employee.service';
 
@@ -9,7 +10,7 @@ import { EmployeeService } from 'src/app/shared/employee.service';
   styleUrls: ['./employee-form.component.css']
 })
 export class EmployeeFormComponent implements OnInit {
-  constructor(public empService: EmployeeService) {}
+  constructor(public empService: EmployeeService, public toast: ToastrService) {}
 
   ngOnInit() {
     this.empService.getDesignations().subscribe(data => {
@@ -31,6 +32,7 @@ export class EmployeeFormComponent implements OnInit {
     this.empService.saveEmployee().subscribe(data => {
       this.resetForm(myForm);
       this.refereshData();
+      this.toast.success('Success', 'Record Inserted');
     })
   }
 
@@ -38,6 +40,7 @@ export class EmployeeFormComponent implements OnInit {
     this.empService.updateEmployee().subscribe(data => {
       this.resetForm(myForm);
       this.refereshData();
+      this.toast.success('Success', 'Record Updated');
     })
   }
 
